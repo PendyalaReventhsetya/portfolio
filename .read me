@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" media="screen and(max-width:800px)" href="tablet.css" >
+    <link rel="stylesheet" media="screen and (max-width:530px)" href="phone.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+
+        </ul>
+    </nav>
+    <section id="home" >
+        <div class="main">
+            <h1 class="heading">I AM <br>PENDYALA  REVENTH SETYA  </h1>
+            <button class="btn" > Hire me</button>
+        </div>
+        
+    </section>
+    <section id="about">
+        <h1 class="headings">ABOUT ME</h1>
+        
+        <div id="pic">
+            
+            <img src="img2.JPG" alt="">
+            <div id="intro" >
+                <h2>REVENTH PENDYALA</h2>
+                <p>Well, I have enough knowledge of what you're thinking about this job, I am a student of SRM IST, I can prove myself in this job . And also I have good communication skills in different languages like TELUGU, HINDI, ENGLISH, and I am good at connecting with different people</p>
+                 
+            </div>
+
+
+
+        </div>
+    </section>
+    <section id="portfolio">
+        <h1 class="headings">PORTFOLIO </h1>
+        <div class="gallery">
+            <img src="img3.jpg" alt="">
+            <img src="img4.jpg" alt="">
+            <img src="img5.jpg" alt="">
+            <img src="img6.jpg" alt="">
+            <img src="img7.jpg" alt="">
+
+        </div>
+    </section>
+    <section id="services">
+        <h1 class="headings">SERVICES</h1>
+         <div class="row">
+            <div class="box"> 
+             <h1 class="headings">Website Design </h1>
+             <p>created many websites </p> 
+            </div>    
+            <div class="box"> 
+                <h1 class="headings">UI & UX </h1>
+                <p>I can create UI & UX designs for better vision</p> 
+               </div>   
+               <div class="box"> 
+                <h1 class="headings">PYTHON </h1>
+                <p>solved many problems in python</p> 
+               </div>  
+         </div>
+    </section>
+    <section id="contact">
+        <h1 class="headings" > CONTACT</h1>
+        <form action="c.php" method="post" class="form">
+            <input type="text" name="name" id="input" required placeholder="Enter Your Name">
+            <input type="email" name= "email" class="input" required placeholder="Enter Your Email">
+            <input type="number" name= "number" class="input" required placeholder="Phone no" >
+            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter your Message Here"></textarea>
+            <input type="submit" name="s" value="SEND" id="send" class="btn">
+        </form>
+    </section>
+</body>
+</html>
