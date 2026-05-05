@@ -122,6 +122,84 @@
         </article>
       </section>
 
+      <section id="call-agent" class="section">
+        <article class="panel">
+          <h2>AI Calling Agent Flow</h2>
+          <p>Try a quick live demo call flow below.</p>
+          <div class="call-demo" aria-live="polite">
+            <div id="demo-log" class="demo-log">
+              <p><strong>System:</strong> Press “Start Demo Call” to simulate an inbound customer call.</p>
+            </div>
+            <div class="demo-actions">
+              <button id="demo-start" class="btn" type="button">Start Demo Call</button>
+              <button id="demo-next" type="button" disabled>Next Step</button>
+              <button id="demo-reset" type="button">Reset</button>
+            </div>
+          </div>
+          <ol class="flow-list">
+            <li>
+              <h3>Incoming Call</h3>
+              <p>Customer calls business number.</p>
+            </li>
+            <li>
+              <h3>AI Greets Customer</h3>
+              <p>“Hi, thanks for calling. How can I help you today?”</p>
+            </li>
+            <li>
+              <h3>Understand Intent</h3>
+              <p>Agent identifies whether customer wants to:</p>
+              <ul>
+                <li>Book appointment</li>
+                <li>Reschedule</li>
+                <li>Cancel</li>
+                <li>Ask pricing</li>
+                <li>Ask availability</li>
+                <li>Speak to human</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Collect Details</h3>
+              <p>Agent asks for:</p>
+              <ul>
+                <li>Name</li>
+                <li>Phone number</li>
+                <li>Service needed</li>
+                <li>Preferred date/time</li>
+                <li>Location (if needed)</li>
+                <li>Special notes</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Check Availability</h3>
+              <p>Agent connects with calendar/booking system. Example tools:</p>
+              <ul>
+                <li>Google Calendar</li>
+                <li>Calendly</li>
+                <li>Square Appointments</li>
+                <li>CRM</li>
+                <li>Custom database</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Confirm Booking</h3>
+              <p>“Great, I found availability on Tuesday at 3 PM. Should I book that for you?”</p>
+            </li>
+            <li>
+              <h3>Create Booking</h3>
+              <p>Agent saves appointment.</p>
+            </li>
+            <li>
+              <h3>Send Confirmation</h3>
+              <p>Agent sends SMS/email confirmation.</p>
+            </li>
+            <li>
+              <h3>Escalate if Needed</h3>
+              <p>If customer is angry, confused, or request is complex, agent transfers to human.</p>
+            </li>
+          </ol>
+        </article>
+      </section>
+
       <section id="contact" class="section contact">
         <h2>Contact</h2>
         <p>Open to AI/ML engineering opportunities and collaborative product work.</p>
@@ -132,5 +210,59 @@
         </p>
       </section>
     </main>
+
+    <script>
+      const steps = [
+        'Customer calls business number.',
+        'AI: Hi, thanks for calling. How can I help you today?',
+        'Intent detected: Book appointment.',
+        'AI collects details: Name, phone, service, preferred date/time, location, and notes.',
+        'AI checks availability in Google Calendar / Calendly / CRM.',
+        'AI: Great, I found availability on Tuesday at 3 PM. Should I book that for you?',
+        'Booking created and saved successfully.',
+        'Confirmation sent by SMS/email.',
+        'If needed, call escalates to a human agent.'
+      ];
+
+      const logEl = document.getElementById('demo-log');
+      const startBtn = document.getElementById('demo-start');
+      const nextBtn = document.getElementById('demo-next');
+      const resetBtn = document.getElementById('demo-reset');
+      let index = -1;
+
+      function writeLog(message) {
+        const line = document.createElement('p');
+        line.textContent = message;
+        logEl.appendChild(line);
+        logEl.scrollTop = logEl.scrollHeight;
+      }
+
+      function resetDemo() {
+        index = -1;
+        logEl.innerHTML = '<p><strong>System:</strong> Press “Start Demo Call” to simulate an inbound customer call.</p>';
+        nextBtn.disabled = true;
+      }
+
+      startBtn.addEventListener('click', () => {
+        if (index !== -1) return;
+        index = 0;
+        writeLog('Demo started.');
+        writeLog('1. ' + steps[index]);
+        nextBtn.disabled = false;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        index += 1;
+        if (index < steps.length) {
+          writeLog((index + 1) + '. ' + steps[index]);
+        }
+        if (index >= steps.length - 1) {
+          nextBtn.disabled = true;
+          writeLog('Demo complete.');
+        }
+      });
+
+      resetBtn.addEventListener('click', resetDemo);
+    </script>
   </body>
 </html>
